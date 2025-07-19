@@ -1,0 +1,290 @@
+/**
+ * Nepali Date Picker Styles
+ * Clean, modern styling for the date picker component
+ */
+
+.nepali-date-picker {
+  background: white;
+  border: 1px solid #e1e5e9;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  font-size: 14px;
+  user-select: none;
+  min-width: 280px;
+  max-width: 320px;
+}
+
+.nepali-date-picker.inline {
+  position: relative;
+  display: inline-block;
+}
+
+/* Header */
+.ndp-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  border-bottom: 1px solid #e1e5e9;
+  background: #f8f9fa;
+  border-radius: 8px 8px 0 0;
+}
+
+.ndp-nav-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  color: #6c757d;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ndp-nav-btn:hover {
+  background: #e9ecef;
+  color: #495057;
+}
+
+.ndp-nav-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.ndp-title {
+  font-weight: 600;
+  color: #212529;
+  font-size: 16px;
+}
+
+/* Calendar */
+.ndp-calendar {
+  padding: 16px;
+}
+
+.ndp-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+  margin-bottom: 8px;
+}
+
+.ndp-weekday {
+  text-align: center;
+  font-weight: 600;
+  color: #6c757d;
+  font-size: 12px;
+  padding: 8px 4px;
+  text-transform: uppercase;
+}
+
+.ndp-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+
+.ndp-day {
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  position: relative;
+}
+
+.ndp-day:hover:not(.ndp-disabled):not(.ndp-empty) {
+  background: #e9ecef;
+}
+
+.ndp-day.ndp-empty {
+  cursor: default;
+}
+
+.ndp-day.ndp-today {
+  background: #007bff;
+  color: white;
+  font-weight: 600;
+}
+
+.ndp-day.ndp-today:hover {
+  background: #0056b3;
+}
+
+.ndp-day.ndp-selected {
+  background: #28a745;
+  color: white;
+  font-weight: 600;
+}
+
+.ndp-day.ndp-selected:hover {
+  background: #1e7e34;
+}
+
+.ndp-day.ndp-in-range {
+  background: #28a745;
+  color: white;
+}
+
+.ndp-day.ndp-disabled {
+  color: #adb5bd;
+  cursor: not-allowed;
+  background: #f8f9fa;
+}
+
+/* Footer */
+.ndp-footer {
+  padding: 12px 16px;
+  border-top: 1px solid #e1e5e9;
+  background: #f8f9fa;
+  border-radius: 0 0 8px 8px;
+  text-align: center;
+}
+
+.ndp-today-btn {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+
+.ndp-today-btn:hover {
+  background: #0056b3;
+}
+
+/* Dark Theme */
+.nepali-date-picker.theme-dark {
+  background: #2d3748;
+  border-color: #4a5568;
+  color: #e2e8f0;
+}
+
+.nepali-date-picker.theme-dark .ndp-header {
+  background: #1a202c;
+  border-color: #4a5568;
+}
+
+.nepali-date-picker.theme-dark .ndp-nav-btn {
+  color: #a0aec0;
+}
+
+.nepali-date-picker.theme-dark .ndp-nav-btn:hover {
+  background: #4a5568;
+  color: #e2e8f0;
+}
+
+.nepali-date-picker.theme-dark .ndp-title {
+  color: #e2e8f0;
+}
+
+.nepali-date-picker.theme-dark .ndp-weekday {
+  color: #a0aec0;
+}
+
+.nepali-date-picker.theme-dark .ndp-day:hover:not(.ndp-disabled):not(.ndp-empty) {
+  background: #4a5568;
+}
+
+.nepali-date-picker.theme-dark .ndp-day.ndp-disabled {
+  color: #718096;
+  background: #1a202c;
+}
+
+.nepali-date-picker.theme-dark .ndp-footer {
+  background: #1a202c;
+  border-color: #4a5568;
+}
+
+/* Modern Theme */
+.nepali-date-picker.theme-modern {
+  border: none;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+}
+
+.nepali-date-picker.theme-modern .ndp-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 12px 12px 0 0;
+  border: none;
+}
+
+.nepali-date-picker.theme-modern .ndp-nav-btn {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.nepali-date-picker.theme-modern .ndp-nav-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.nepali-date-picker.theme-modern .ndp-title {
+  color: white;
+}
+
+.nepali-date-picker.theme-modern .ndp-day {
+  border-radius: 8px;
+}
+
+.nepali-date-picker.theme-modern .ndp-day.ndp-today {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.nepali-date-picker.theme-modern .ndp-day.ndp-selected {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.nepali-date-picker.theme-modern .ndp-today-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 6px;
+}
+
+/* Nepali Language Adjustments */
+.nepali-date-picker.lang-nepali {
+  font-family: 'Devanagari Sangam MN', 'Noto Sans Devanagari', sans-serif;
+}
+
+.nepali-date-picker.lang-nepali .ndp-weekday {
+  font-size: 11px;
+}
+
+/* Animations */
+.nepali-date-picker {
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .nepali-date-picker {
+    min-width: 260px;
+    max-width: 300px;
+  }
+  
+  .ndp-day {
+    height: 32px;
+    font-size: 13px;
+  }
+  
+  .ndp-header {
+    padding: 12px;
+  }
+  
+  .ndp-calendar {
+    padding: 12px;
+  }
+}

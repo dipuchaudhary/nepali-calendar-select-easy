@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nepali Calendar Library Demo</title>
+    <link rel="stylesheet" href="nepali-date-picker.css">
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; max-width: 800px; margin: 0 auto; }
+        .demo-section { margin: 30px 0; padding: 20px; border: 1px solid #ddd; border-radius: 8px; }
+        .demo-input { width: 200px; padding: 8px; margin: 10px; border: 1px solid #ccc; border-radius: 4px; }
+        .result { background: #f5f5f5; padding: 10px; margin: 10px 0; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <h1>Nepali Calendar Library Demo</h1>
+
+    <div class="demo-section">
+        <h2>Basic Date Picker</h2>
+        <input type="text" class="demo-input" id="basic-picker" placeholder="Select Nepali Date">
+        <div class="result" id="basic-result"></div>
+    </div>
+
+    <div class="demo-section">
+        <h2>Range Selection</h2>
+        <input type="text" class="demo-input" id="range-picker" placeholder="Select Date Range">
+        <div class="result" id="range-result"></div>
+    </div>
+
+    <div class="demo-section">
+        <h2>Nepali Language</h2>
+        <input type="text" class="demo-input" id="nepali-picker" placeholder="नेपाली मिति छान्नुहोस्">
+        <div class="result" id="nepali-result"></div>
+    </div>
+
+    <script type="module">
+        import { NepaliFunctions, NepaliDatePicker } from './index.js';
+
+        // Basic picker
+        new NepaliDatePicker(document.getElementById('basic-picker'), {
+            onSelect: (result) => {
+                document.getElementById('basic-result').textContent = 
+                    'Selected: ' + result.formattedDates[0];
+            }
+        });
+
+        // Range picker
+        new NepaliDatePicker(document.getElementById('range-picker'), {
+            range: true,
+            theme: 'modern',
+            onSelect: (result) => {
+                document.getElementById('range-result').textContent = 
+                    'Range: ' + result.formattedDates.join(' to ');
+            }
+        });
+
+        // Nepali language picker
+        new NepaliDatePicker(document.getElementById('nepali-picker'), {
+            language: 'nepali',
+            theme: 'dark',
+            onSelect: (result) => {
+                const nepaliDate = NepaliFunctions.toNepaliNumerals(result.formattedDates[0]);
+                document.getElementById('nepali-result').textContent = 
+                    'छानिएको मिति: ' + nepaliDate;
+            }
+        });
+
+        // Demo conversion functions
+        console.log('Current Nepali Date:', NepaliFunctions.getCurrentNepaliDate());
+        console.log('Current Gregorian Date:', NepaliFunctions.getCurrentGregorianDate());
+    </script>
+</body>
+</html>
